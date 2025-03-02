@@ -17,9 +17,13 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain  defaultSecurityFilterChain(HttpSecurity http) throws  Exception{
         http.csrf(AbstractHttpConfigurer::disable)
+
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults());
+                // .formLogin(form -> form.defaultSuccessUrl("/hello",true)) //disable default form to oauth
+
+                .oauth2Login(oauth2 ->
+                        oauth2.defaultSuccessUrl("/hello",true));
         return http.build();
     }
 
