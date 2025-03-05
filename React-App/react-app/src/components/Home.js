@@ -3,10 +3,10 @@ import App from "../App";
 const Home =() =>{
 
     const GOOGLELOGIN=()=>{
-
+        window.location.href='http://localhost:8080/oauth2/authorization/google'
     };
     const GitHubLOGIN=()=>{
-
+        window.location.href='http://localhost:8080/oauth2/authorization/google'
     };
     return(
         <div>
